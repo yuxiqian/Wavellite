@@ -64,7 +64,7 @@ end
 class String
   class << self
     def all_hanzi
-      $hanzi2pinyin.keys.to_set.filter(&:hanzi?)
+      $hanzi2pinyin.keys.to_set.filter(&:hanzis)
     end
 
     def all_initials
@@ -108,7 +108,7 @@ class String
     $hanzi2pinyin[self]
   end
 
-  def hanzi
+  def hanzis
     $pinyin2hanzi[self]
   end
 
@@ -137,9 +137,9 @@ class String
     self
   end
 
-  def with(initial: nil, final: nil)
+  def with?(initial: nil, final: nil)
     if hanzi?
-      pinyins.map { |py| py.with(initial: initial, final: final) }
+      pinyins.map { |py| py.with?(initial: initial, final: final) }
     else
       no_acc = remove_accent
       return false if !initial.nil? && !no_acc.start_with?(initial)
