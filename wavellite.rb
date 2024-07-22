@@ -16,12 +16,12 @@ p '你'.hanzi? # => true
 p 'Hello'.hanzi? # => false
 
 # 获取汉字拼音
-p '你'.pinyin # => ["nǐ"]
-p '好'.pinyin # => ["hǎo", "hào"]
+p '你'.pinyins # => ["nǐ"]
+p '好'.pinyins # => ["hǎo", "hào"]
 
 # 获取汉字声调
-p '你'.accent # => [3]
-p '好'.accent # => [3, 4]
+p '你'.accents # => [3]
+p '好'.accents # => [3, 4]
 
 # 这是合法的拼音吗
 p 'zhū'.pinyin? # => true
@@ -36,12 +36,12 @@ p '你'.with(final: 'i') # => [true]
 p '我'.with(final: 'u') # => [false]
 
 # 查询汉字笔画
-p '春城无处不飞花'.each_char.map(&:strokes) # => [9, 9, 4, 5, 4, 3, 7]
-p(String.all_hanzi.filter { |zi| zi.strokes == 26 }) # => ["蠼"]
+p '春城无处不飞花'.each_char.map(&:stroke) # => [9, 9, 4, 5, 4, 3, 7]
+p(String.all_hanzi.filter { |zi| zi.stroke == 26 }) # => ["蠼"]
 
 # 查询汉字部首
 p '烟锁池塘柳'.each_char.map(&:radical) # => ["火", "钅", "氵", "土", "木"]
-p(String.all_hanzi.filter { |zi| zi.strokes == 24 && zi.radical == '金' }) # => ["鑫"]
+p(String.all_hanzi.filter { |zi| zi.stroke == 24 && zi.radical == '金' }) # => ["鑫"]
 
 # 简繁转换
 p '忧'.traditional # => "憂"
@@ -59,9 +59,9 @@ p String.all_idioms.first # => "阿鼻地狱"
 p(String
     .all_idioms
     .filter { |idiom| idiom.size == 4 }
-    .filter { |idiom| idiom.each_char.map(&:accent).flatten == [1, 2, 3, 4] }
-    .filter { |idiom| %w[金 木 水 火 土].include? idiom[0].radical }
-    .filter { |idiom| idiom[1].pinyin.first.with(initial: 'h') }
-    .filter { |idiom| idiom[2].pinyin.first.with(final: 'i') }
-    .filter { |idiom| idiom[3].strokes > 20 }
+    .filter { |idiom| idiom.each_char.map(&:accents).flatten == [1, 2, 3, 4] }
+    .filter { |idiom| %w[钅 木 氵 火 土].include? idiom[0].radical }
+    .filter { |idiom| idiom[1].pinyins.first.with(initial: 'h') }
+    .filter { |idiom| idiom[2].pinyins.first.with(final: 'i') }
+    .filter { |idiom| idiom[3].stroke > 20 }
 ) # => ["析骸以爨"]

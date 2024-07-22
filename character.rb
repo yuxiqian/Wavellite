@@ -92,7 +92,7 @@ class String
     $hanzi2radicals[self]
   end
 
-  def strokes
+  def stroke
     $hanzi2strokes[self]
   end
 
@@ -104,7 +104,7 @@ class String
     $trad2simp[self] || self
   end
 
-  def pinyin
+  def pinyins
     $hanzi2pinyin[self]
   end
 
@@ -112,9 +112,9 @@ class String
     $pinyin2hanzi[self]
   end
 
-  def accent
+  def accents
     if hanzi?
-      pinyin.map(&:accent)
+      pinyins.map(&:accents)
     elsif pinyin?
       get_accent self
     end
@@ -139,7 +139,7 @@ class String
 
   def with(initial: nil, final: nil)
     if hanzi?
-      pinyin.map { |py| py.with(initial: initial, final: final) }
+      pinyins.map { |py| py.with(initial: initial, final: final) }
     else
       no_acc = remove_accent
       return false if !initial.nil? && !no_acc.start_with?(initial)
