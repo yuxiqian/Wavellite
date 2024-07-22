@@ -17,11 +17,11 @@
 
 ```ruby
 # 获取全部汉字
-String.all_hanzi.size # => 7418
+String.all_hanzis.size # => 7418
 
 # 这是个汉字吗
 '你'.hanzi? # => true
-'Hello'.hanzi? # => false
+'あ'.hanzi? # => false
 
 # 获取汉字拼音
 '你'.pinyins # => ["nǐ"]
@@ -37,11 +37,11 @@ String.all_hanzi.size # => 7418
 
 # 查询汉字笔画
 '春城无处不飞花'.each_char.map(&:stroke) # => [9, 9, 4, 5, 4, 3, 7]
-String.all_hanzi.filter { |zi| zi.stroke == 26 } # => ["蠼"]
+String.all_hanzis.filter { |zi| zi.stroke == 26 } # => ["蠼"]
 
 # 查询汉字部首
 '烟锁池塘柳'.each_char.map(&:radical) # => ["火", "钅", "氵", "土", "木"]
-String.all_hanzi.filter { |zi| zi.stroke == 24 && zi.radical == '金' } # => ["鑫"]
+String.all_hanzis.filter { |zi| zi.stroke == 24 && zi.radical == '金' } # => ["鑫"]
 
 # 简繁转换
 '忧'.traditional # => "憂"

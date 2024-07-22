@@ -63,7 +63,7 @@ end
 # Monkey-patch string class. Don't try this at home
 class String
   class << self
-    def all_hanzi
+    def all_hanzis
       $hanzi2pinyin.keys.to_set.filter(&:hanzis)
     end
 

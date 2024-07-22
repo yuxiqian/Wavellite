@@ -9,11 +9,11 @@ init_word_db
 init_idiom_db
 
 # 获取全部汉字
-p String.all_hanzi.size # => 7418
+p String.all_hanzis.size # => 7418
 
 # 这是个汉字吗
 p '你'.hanzi? # => true
-p 'Hello'.hanzi? # => false
+p 'あ'.hanzi? # => false
 
 # 获取汉字拼音
 p '你'.pinyins # => ["nǐ"]
@@ -37,11 +37,11 @@ p '我'.with?(final: 'u') # => [false]
 
 # 查询汉字笔画
 p '春城无处不飞花'.each_char.map(&:stroke) # => [9, 9, 4, 5, 4, 3, 7]
-p(String.all_hanzi.filter { |zi| zi.stroke == 26 }) # => ["蠼"]
+p(String.all_hanzis.filter { |zi| zi.stroke == 26 }) # => ["蠼"]
 
 # 查询汉字部首
 p '烟锁池塘柳'.each_char.map(&:radical) # => ["火", "钅", "氵", "土", "木"]
-p(String.all_hanzi.filter { |zi| zi.stroke == 24 && zi.radical == '金' }) # => ["鑫"]
+p(String.all_hanzis.filter { |zi| zi.stroke == 24 && zi.radical == '金' }) # => ["鑫"]
 
 # 简繁转换
 p '忧'.traditional # => "憂"
