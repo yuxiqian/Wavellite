@@ -16,12 +16,12 @@ p '你'.hanzi? # => true
 p 'Hello'.hanzi? # => false
 
 # 获取汉字拼音
-p '你'.pinyin # => {"nǐ"}
-p '好'.pinyin # => {"hǎo", "hào"}
+p '你'.pinyin # => ["nǐ"]
+p '好'.pinyin # => ["hǎo", "hào"]
 
 # 获取汉字声调
-p '你'.accent # => 3
-p '好'.accent # => {3, 4}
+p '你'.accent # => [3]
+p '好'.accent # => [3, 4]
 
 # 这是合法的拼音吗
 p 'zhū'.pinyin? # => true
