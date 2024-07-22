@@ -1,0 +1,9 @@
+[submodule "chinese-xinhua"]
+	path = chinese-xinhua
+	url = ./chinese-xinhua
+[submodule "english-words"]
+	path = english-words
+	url = ./english-words
+[submodule "pinyin-data"]
+	path = pinyin-data
+	url = ./pinyin-data
