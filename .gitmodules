@@ -1,9 +1,9 @@
 [submodule "chinese-xinhua"]
 	path = chinese-xinhua
-	url = ./chinese-xinhua
+	url = https://github.com/pwxcoo/chinese-xinhua.git
 [submodule "english-words"]
 	path = english-words
-	url = ./english-words
+	url = https://github.com/dwyl/english-words.git
 [submodule "pinyin-data"]
 	path = pinyin-data
-	url = ./pinyin-data
+	url = https://github.com/mozillazg/pinyin-data.git
